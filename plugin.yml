@@ -1,0 +1,17 @@
+name: PlayerScale
+version: 1.0.0
+main: Electro\PlayerScale\PlayerScale
+api: 4.0.0
+author: Electro
+
+commands:
+  size:
+    usage: /size
+    aliases: [scale]
+    description: Change your player size
+    permission: PlayerScale.cmd
+
+permissions:
+  PlayerScale.cmd:
+    description: Permission to use size command
+    default: op
