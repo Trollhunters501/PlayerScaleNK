@@ -9,4 +9,5 @@
 # Permissions
 - PlayerScale.cmd
 # Credits
-- Subscribe to Electro Games on YouTube!
+- Subscribe to Electro Games on YouTube!(Original Author)
+- Pocketmine to Nukkit Translator: Trollhunters501 (Creadores Program)
