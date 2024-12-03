@@ -1,0 +1,7 @@
+{
+    "name": "PlayerScaleNK",
+    "version": "2.0.0",
+    "main": "Electro/PlayerScale/CreadoresProgram/PlayerScale.js",
+    "author": "Electro & Creadores Program",
+    "description": "allows you to change the size of players!"
+}
