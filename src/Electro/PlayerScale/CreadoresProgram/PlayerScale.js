@@ -6,6 +6,10 @@ function onCommand(sender, args, label, manageCMD){
         sender.sendMessage("§cYou must be in-game to run this command");
         return;
     }
+    if(!sender.hasPermission("PlayerScale.cmd")){
+        sender.sendMessage("§cYou no perm for Command!");
+        return;
+    }
     if(args.length < 1){
         sender.sendMessage("§l§cUsage: §r§a/size <set/ui>");
         return;
@@ -79,3 +83,6 @@ script.addEventListener("PlayerFormRespondedEvent", function(event){
         }
     }
 });
+module.exports = {
+    onLoad: load
+};
