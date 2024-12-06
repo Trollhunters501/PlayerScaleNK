@@ -56,7 +56,7 @@ function scaleForm(){
     }
     return new FormWindowCustom("§lScale a Player", [
         new ElementDropdown("Select a Player", list),
-        new ElementSlider("Select a Size", 1.0, 5.0, 0.1, 1.0)
+        new ElementSlider("Select a Size", 1.0, 5.0, 0.5, 1.0)
     ]);
 }
 script.addEventListener("PlayerFormRespondedEvent", function(event){
@@ -76,10 +76,10 @@ script.addEventListener("PlayerFormRespondedEvent", function(event){
         player = server.getPlayerExact(player);
         player.setScale(scale);
         if(player.getName() != submitter.getName()){
-            submitter.sendMessage("§aYou have set "+player.getName()+"'s player size to "+args[1]);
-            submitter.sendMessage("§aYour player size has been set to "+args[1]);
+            submitter.sendMessage("§aYou have set "+player.getName()+"'s player size to "+scale);
+            submitter.sendMessage("§aYour player size has been set to "+scale);
         }else{
-            submitter.sendMessage("§aYou have set your size to "+args[1]);
+            submitter.sendMessage("§aYou have set your size to "+scale);
         }
     }
 });
