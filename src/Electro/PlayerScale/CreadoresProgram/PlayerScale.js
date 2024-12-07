@@ -49,14 +49,14 @@ function onCommand(sender, args, label, manageCMD){
 function scaleForm(){
     let FormWindowCustom = Java.type("cn.nukkit.form.window.FormWindowCustom");
     let ElementDropdown = Java.type("cn.nukkit.form.element.ElementDropdown");
-    let ElementSlider = Java.type("cn.nukkit.form.element.ElementSlider");
+    let ElementInput = Java.type("cn.nukkit.form.element.ElementInput");
     let list = [];
     for each(let player in players){
         list[list.length] = player.getName();
     }
     return new FormWindowCustom("§lScale a Player", [
         new ElementDropdown("Select a Player", list),
-        new ElementSlider("Select a Size", 1.0, 5.0, 0.5, 1.0)
+        new ElementInput("Select a Size", "1.0")
     ]);
 }
 script.addEventListener("PlayerFormRespondedEvent", function(event){
@@ -68,13 +68,17 @@ script.addEventListener("PlayerFormRespondedEvent", function(event){
         if(event.wasClosed()) return;
         if(win.getTitle() != "§lScale a Player") return;
         let player = event.getResponse().getDropdownResponse(0).getElementContent();
-        let scale = event.getResponse().getSliderResponse(1);
+        let scale = event.getResponse().getInputResponse(1);
         if(server.getPlayerExact(player) == null){
             submitter.sendMessage("§l§cERROR: §r§aYou have selected an invalid Player.");
             return;
         }
+        if(isNaN(parseFloat(scale)) || parseFloat(scale) < 1 || parseFloat(scale) > 5){
+            submitter.sendMessage("§l§cERROR: §r§aYou have entered an invalid Size. Chose a size between 1-5.");
+            return;
+        }
         player = server.getPlayerExact(player);
-        player.setScale(scale);
+        player.setScale(parseFloat(scale));
         if(player.getName() != submitter.getName()){
             submitter.sendMessage("§aYou have set "+player.getName()+"'s player size to "+scale);
             submitter.sendMessage("§aYour player size has been set to "+scale);
