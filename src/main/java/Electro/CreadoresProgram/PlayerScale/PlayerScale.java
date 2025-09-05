@@ -43,7 +43,8 @@ public class PlayerScale extends PluginBase implements Listener {
         if(event.wasClosed()){
             return;
         }
-        if(win.getTitle() != "§lScale a Player"){
+        FormWindowCustom custom = (FormWindowCustom) win;
+        if(custom.getTitle() != "§lScale a Player"){
             return;
         }
         String playerName = event.getResponse().getDropdownResponse(0).getElementContent();
