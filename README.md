@@ -11,4 +11,3 @@
 # Credits
 - Subscribe to Electro Games on YouTube!(Original Author)
 - Pocketmine to Nukkit Translator: Trollhunters501 (Creadores Program)
-- For JSENK2
