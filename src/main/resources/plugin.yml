@@ -1,0 +1,6 @@
+name: PlayerScaleNK
+version: "2.0.0"
+main: Electro.CreadoresProgram.PlayerScale.PlayerScale
+api: "1.0.0"
+authors: [Electro & Creadores Program]
+website: "https://github.com/Trollhunters501/PlayerScaleNK"
