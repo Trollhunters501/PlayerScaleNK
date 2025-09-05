@@ -11,6 +11,7 @@ import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.element.ElementDropdown;
 import cn.nukkit.form.element.ElementInput;
 import cn.nukkit.form.element.Element;
+import cn.nukkit.form.response.FormResponseCustom;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -47,14 +48,14 @@ public class PlayerScale extends PluginBase implements Listener {
         if(custom.getTitle() != "§lScale a Player"){
             return;
         }
-        String playerName = event.getResponse().getDropdownResponse(0).getElementContent();
+        String playerName = ((FormResponseCustom) event.getResponse()).getDropdownResponse(0).getElementContent();
         if(getServer().getPlayerExact(playerName) == null){
             sumitter.sendMessage("§l§cERROR: §r§aYou have selected an invalid Player.");
             return;
         }
         float scale;
         try{
-            scale = Float.parseFloat(event.getResponse().getInputResponse(1));
+            scale = Float.parseFloat(((FormResponseCustom) event.getResponse()).getInputResponse(1));
             if(scale < 0.5f || scale > 5.0f){
                 sumitter.sendMessage("§l§cERROR: §r§aYou have entered an invalid Size. Chose a size between 0.5-5.");
                 return;
